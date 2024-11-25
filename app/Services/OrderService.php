@@ -33,10 +33,14 @@ class OrderService implements OrderServiceInterface
 
     private function validateName(string $name)
     {
-        if (! preg_match('/^[a-zA-Z0-9 ]+$/', $name)) {
+        if (! preg_match('/^[a-zA-Z ]+$/', $name)) {
             throw new Exception('Name contains non-English characters', 400);
-        } elseif (! ctype_upper(substr($name, 0, 1))) {
-            throw new Exception('Name is not capitalized', 400);
+        }
+        $words = explode(' ', $name);
+        foreach ($words as $word) {
+            if (! empty($word) && ! ctype_upper(substr($word, 0, 1))) {
+                throw new Exception('Name is not capitalized', 400);
+            }
         }
     }
 
