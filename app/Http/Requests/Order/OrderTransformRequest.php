@@ -29,7 +29,7 @@ class OrderTransformRequest extends FormRequest
             'address.city' => ['required', 'string', 'max:50'],
             'address.district' => ['required', 'string', 'max:50'],
             'address.street' => ['required', 'string', 'max:100'],
-            'price' => ['required', 'numeric', 'min:0'],
+            'price' => ['required', 'integer', 'min:0'],
             'currency' => ['required', 'string', 'size:3'],
         ];
     }
