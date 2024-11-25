@@ -64,7 +64,7 @@ class OrderServiceTest extends TestCase
     public function test_transform_name_not_capitalized()
     {
         $orderData = $this->getValidData();
-        $orderData['name'] = 'testOrder';
+        $orderData['name'] = 'Test order';
 
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Name is not capitalized');
