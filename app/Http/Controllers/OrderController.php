@@ -17,7 +17,7 @@ class OrderController extends Controller
         $validated = $request->validated();
 
         try {
-            $orderData = $this->orderService->transform($request->all());
+            $orderData = $this->orderService->transform($validated);
 
             return response()->json($orderData);
         } catch (Exception $e) {
