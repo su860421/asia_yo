@@ -8,6 +8,8 @@ use Exception;
 
 class OrderService implements OrderServiceInterface
 {
+    private const USD_TO_TWD_RATE = 31;
+
     public function __construct() {}
 
     public function transform(array $orderData)
@@ -15,7 +17,7 @@ class OrderService implements OrderServiceInterface
         $this->validateOrder($orderData);
 
         if ($orderData['currency'] == OrderCurrency::USD()) {
-            $orderData['price'] *= config('setting.usd_to_twd');
+            $orderData['price'] *= self::USD_TO_TWD_RATE;
             $orderData['currency'] = OrderCurrency::TWD();
         }
 
