@@ -6,7 +6,7 @@ use App\Contracts\OrderServiceInterface;
 use App\Enums\OrderCurrency;
 use Exception;
 
-class OrderService implements OrderServiceInterface
+class OrderService extends BaseService implements OrderServiceInterface
 {
     private const USD_TO_TWD_RATE = 31;
 
